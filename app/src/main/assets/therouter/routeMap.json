@@ -1,0 +1,23 @@
+[
+  {
+    "path": "updatepage",
+    "className": "org.example.hsbcbookfrontend.SecondFragment",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "main",
+    "className": "org.example.hsbcbookfrontend.MainActivity",
+    "action": "",
+    "description": "",
+    "params": {}
+  },
+  {
+    "path": "listpage",
+    "className": "org.example.hsbcbookfrontend.FirstFragment",
+    "action": "",
+    "description": "",
+    "params": {}
+  }
+]
