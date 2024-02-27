@@ -7,9 +7,11 @@ import com.allen.library.interceptor.Transformer
 import com.allen.library.observer.CommonObserver
 import com.allen.library.utils.ToastUtils
 import org.example.hsbcbookfrontend.network.api.BookApi
+import org.example.hsbcbookfrontend.network.model.Book
 import org.example.hsbcbookfrontend.network.model.BookListModel
+import org.example.hsbcbookfrontend.network.model.OperationModel
 
-class BookViewModel : ViewModel(){
+class BookViewModel : ViewModel() {
     val bookListLiveData: MutableLiveData<List<BookListModel.DataDTO>> by lazy {
         MutableLiveData()
     }
@@ -28,5 +30,37 @@ class BookViewModel : ViewModel(){
                 }
 
             })
+    }
+
+    fun deleteBook(id: Int) {
+        RxHttpUtils.createApi(BookApi::class.java)
+            .deleteBook(id)
+            ?.compose(Transformer.switchSchedulers<OperationModel>())
+            ?.subscribe(object : CommonObserver<OperationModel>() {
+                override fun onError(errorMsg: String?) {
+                    ToastUtils.showToast("delete failed")
+                }
+
+                override fun onSuccess(t: OperationModel?) {
+                    getBookList()
+                }
+
+            })
+    }
+
+    fun addUpdate(book: Book) {
+        RxHttpUtils.createApi(BookApi::class.java)
+            .addOrUpdate(book)
+            ?.compose(Transformer.switchSchedulers<OperationModel>())
+            ?.subscribe(object : CommonObserver<OperationModel>() {
+                override fun onError(errorMsg: String?) {
+                    ToastUtils.showToast("add update failed")
+                }
+
+                override fun onSuccess(t: OperationModel?) {
+                    getBookList()
+                }
+            })
+
     }
 }

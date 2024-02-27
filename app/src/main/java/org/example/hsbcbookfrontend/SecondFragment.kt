@@ -11,6 +11,7 @@ import com.therouter.TheRouter
 import com.therouter.router.Autowired
 import com.therouter.router.Route
 import org.example.hsbcbookfrontend.databinding.FragmentSecondBinding
+import org.example.hsbcbookfrontend.network.model.Book
 import org.example.hsbcbookfrontend.viewmodel.BookViewModel
 
 /**
@@ -45,6 +46,11 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.addUpdate.setOnClickListener {
+            val book = Book(0, binding.title.text.toString(), binding.author.text.toString(), binding.intro.text.toString(),
+                binding.pubyear.text.toString().toInt(), binding.isbn.text.toString())
+            bookViewModel.addUpdate(book)
+        }
     }
 
     override fun onDestroyView() {

@@ -63,5 +63,9 @@ class MainActivity : AppCompatActivity() {
                     .commitAllowingStateLoss()
             }
         }
+        LiveEventBus.get<Int>("delete").observe(this) {
+            bookViewModel.deleteBook(it)
+
+        }
     }
 }

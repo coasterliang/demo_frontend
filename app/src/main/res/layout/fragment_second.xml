@@ -14,40 +14,98 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/add_update"
+            app:layout_constraintTop_toTopOf="parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="title"/>
-                <EditText
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/title"/>
+                    android:text="title" />
+
+                <EditText
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="author" />
+
+                <EditText
+                    android:id="@+id/author"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="intro" />
+
+                <EditText
+                    android:id="@+id/intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pubyear" />
+
+                <EditText
+                    android:id="@+id/pubyear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="author"/>
-                <EditText
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/author"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="intro"/>
+                    android:text="isbn" />
+
                 <EditText
+                    android:id="@+id/isbn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/intro"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/add_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add or Update"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

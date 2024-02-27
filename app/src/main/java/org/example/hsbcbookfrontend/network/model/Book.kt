@@ -5,8 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Book(
-    val id: Int,
+    val id: Long = 0,
     val name: String,
     val author: String,
-    val intro: String
+    val intro: String,
+    val pubYear: Int,
+    val isbn: String
 ) : Parcelable

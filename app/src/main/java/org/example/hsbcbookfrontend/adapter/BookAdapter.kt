@@ -13,9 +13,11 @@ import org.example.hsbcbookfrontend.network.model.BookListModel
 class BookAdapter : BaseQuickAdapter<BookListModel.DataDTO, QuickViewHolder>() {
     override fun onBindViewHolder(holder: QuickViewHolder, position: Int, item: BookListModel.DataDTO?) {
         holder.getView<TextView>(R.id.title).setText(item?.name)
-        holder.getView<Button>(R.id.modify).text = "modify"
         holder.getView<Button>(R.id.modify).setOnClickListener {
            LiveEventBus.get<Int>("openmodify").post(item?.id)
+        }
+        holder.getView<Button>(R.id.delete).setOnClickListener {
+            LiveEventBus.get<Int>("delete").post(item?.id)
         }
     }
 
