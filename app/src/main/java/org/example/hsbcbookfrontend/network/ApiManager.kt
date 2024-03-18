@@ -32,7 +32,7 @@ class ApiManager {
                 //.setCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 //.setConverterFactory(ScalarsConverterFactory.create(),GsonConverterFactory.create(GsonAdapter.buildGson()))
                 //配置全局baseUrl
-                .setBaseUrl("http://192.168.113.224:8848/book/")
+                .setBaseUrl("http://8.138.21.244:8848/book/")
                 //开启全局配置
                 .setOkClient(okHttpClient);
 
