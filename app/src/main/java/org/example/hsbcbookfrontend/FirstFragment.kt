@@ -29,9 +29,6 @@ class FirstFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         TheRouter.inject(this)
-
-
-
     }
 
     override fun onCreateView(
@@ -44,6 +41,10 @@ class FirstFragment : Fragment() {
         bookViewModel.bookListLiveData.observe(viewLifecycleOwner) {
             adapter.removeAtRange(0..<adapter.itemCount)
             adapter.addAll(it)
+        }
+        binding.query.setOnClickListener {
+            val keyword = binding.keyword.text.toString()
+            bookViewModel.queryBooks(keyword)
         }
         return binding.root
 

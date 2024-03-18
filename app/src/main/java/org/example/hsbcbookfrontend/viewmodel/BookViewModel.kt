@@ -61,6 +61,20 @@ class BookViewModel : ViewModel() {
                     getBookList()
                 }
             })
+    }
 
+    fun queryBooks(keyword: String) {
+        RxHttpUtils.createApi(BookApi::class.java)
+            .queryBooks(keyword)
+            ?.compose(Transformer.switchSchedulers<BookListModel>())
+            ?.subscribe(object : CommonObserver<BookListModel>() {
+                override fun onError(errorMsg: String?) {
+                    ToastUtils.showToast("query $keyword failed")
+                }
+
+                override fun onSuccess(t: BookListModel?) {
+                    bookListLiveData.value = t?.data
+                }
+            })
     }
 }

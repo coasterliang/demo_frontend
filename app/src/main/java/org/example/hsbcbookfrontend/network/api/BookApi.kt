@@ -18,4 +18,7 @@ interface BookApi {
 
     @POST("update")
     fun addOrUpdate(@Body book: Book): Observable<OperationModel?>?
+
+    @GET("query/{keyword}")
+    fun queryBooks(@Path("keyword") keyword: String): Observable<BookListModel?>?
 }
